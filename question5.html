@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Validation</title>
+    <style>
+        *{
+    text-align: center;
+}
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: 50px auto;
+            width: 300px;
+            text-align: center;
+        }
+        input[type="password"] {
+            width: 200px;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        input[type="submit"] {
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        .foss{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: rgb(230, 190, 190);
+
+}
+.foss:hover{
+    background-color:  rgb(255, 0, 149);
+}
+    </style>
+</head>
+<body>
+    <div class="form">
+        <button class="foss"><a class="foss" href="index.html">question1</a></button>
+        <button class="foss"><a class="foss" href="question2.html">question2</a></button>
+        <button class="foss"><a class="foss" href="question3.html">question3</a></button>
+        <button class="foss"><a  class="foss" href="question4.html">question4</a></button>
+        <button  class="foss"><a class="foss" href="question5.html">question5</a></button>
+        <button class="foss"><a class="foss"href="question6.html">question6</a></button>
+        </div>
+    <div class="container">
+        <h2>Password Validation</h2>
+        <form onsubmit="validatePassword(); return false;">
+            <label for="password">Enter your password:</label>
+            <br>
+            <input type="password" id="password" name="password" required>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <div id="result"></div>
+    </div>
+<center><h2>password:Password123</h2></center>
+    <script>
+        // Storing the correct password
+        var correctPassword = "Password123";
+
+        function validatePassword() {
+            var enteredPassword = document.getElementById('password').value;
+            var resultDiv = document.getElementById('result');
+
+            if (enteredPassword === "") {
+                resultDiv.innerHTML = 'Please enter your password.';
+            } else if (enteredPassword === correctPassword) {
+                resultDiv.innerHTML = 'Correct! The password you entered matches the original password.';
+            } else {
+                resultDiv.innerHTML = 'Incorrect password.';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>24-hour to 12-hour Time Converter</title>
+    <style>
+        *{
+    text-align: center;
+}
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type="text"] {
+            padding: 5px;
+            width: 150px;
+            margin-bottom: 10px;
+        }
+        input[type="button"] {
+            padding: 8px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+
+        .foss{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: rgb(230, 190, 190);
+
+}
+.foss:hover{
+    background-color:  rgb(255, 0, 149);
+}
+    </style>
+</head>
+<body>
+    <div class="form">
+        <button class="foss"><a class="foss" href="index.html">question1</a></button>
+        <button class="foss"><a class="foss" href="question2.html">question2</a></button>
+        <button class="foss"><a class="foss" href="question3.html">question3</a></button>
+        <button class="foss"><a  class="foss" href="question4.html">question4</a></button>
+        <button  class="foss"><a class="foss" href="question5.html">question5</a></button>
+        <button class="foss"><a class="foss"href="question6.html">question6</a></button>
+    </div>
+    <h2>24-hour to 12-hour Time Converter</h2>
+    <input type="text" id="timeInput" placeholder="Enter time in 24-hour format">
+    <br>
+    <input type="button" value="Convert" onclick="convertTime()">
+    <div id="result"></div>
+
+    <script>
+        function convertTime() {
+            var timeInput = document.getElementById('timeInput').value;
+            var resultDiv = document.getElementById('result');
+            var time, hours, minutes, period;
+
+            // Validate the input
+            if (timeInput.length !== 4 || isNaN(timeInput)) {
+                resultDiv.innerHTML = 'Please enter a valid 4-digit time in 24-hour format.';
+                return;
+            }
+
+            // Parse hours and minutes
+            hours = parseInt(timeInput.substring(0, 2));
+            minutes = parseInt(timeInput.substring(2, 4));
+
+            // Validate hours and minutes
+            if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
+                resultDiv.innerHTML = 'Please enter a valid time.';
+                return;
+            }
+
+            // Determine period (AM/PM) and convert hours
+            if (hours < 12) {
+                period = 'AM';
+                if (hours === 0) {
+                    hours = 12;
+                }
+            } else {
+                period = 'PM';
+                if (hours > 12) {
+                    hours -= 12;
+                }
+            }
+
+            // Format minutes with leading zero if necessary
+            if (minutes < 10) {
+                minutes = '0' + minutes;
+            }
+
+            // Create the 12-hour format time string
+            time = hours + ':' + minutes + ' ' + period;
+
+            // Display the result
+            resultDiv.innerHTML = 'The time in 12-hour format is: ' + time;
+        }
+    </script>
+</body>
+</html>
+

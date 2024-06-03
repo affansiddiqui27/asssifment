@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Character Type Checker</title>
+</head>
+<style>
+*{
+    text-align: center;
+}
+.word:hover{
+    background-color: rgb(201, 96, 55);
+    border: none;
+}
+h1{
+    color: green;
+}
+.foss{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    color: rgb(230, 190, 190);
+
+}
+.foss:hover{
+    background-color:  rgb(255, 0, 149);
+}
+
+
+</style>
+<body>
+<div class="form">
+    <button class="foss"><a class="foss" href="index.html">question1</a></button>
+    <button class="foss"><a class="foss" href="question2.html">question2</a></button>
+    <button class="foss"><a class="foss" href="question3.html">question3</a></button>
+    <button class="foss"><a  class="foss" href="question4.html">question4</a></button>
+    <button  class="foss"><a class="foss" href="question5.html">question5</a></button>
+    <button class="foss"><a class="foss"href="question6.html">question6</a></button>
+    </div>
+    <h1>Character Type Checker</h1>
+    <form id="charForm">
+        <label for="character">Enter a character (number or letter):</label>
+        <input type="text" id="character" name="character" maxlength="1" required><br><br>
+        <input class="word" type="button" value="Check" onclick="checkCharacterType()">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        function checkCharacterType() {
+            // Getting the character input
+            var char = document.getElementById("character").value;
+
+            // Getting the ASCII code of the character
+            var asciiCode = char.charCodeAt(0);
+
+            var result;
+            if (asciiCode >= 48 && asciiCode <= 57) {
+                result = "The character is a number.";
+            } else if (asciiCode >= 65 && asciiCode <= 90) {
+                result = "The character is an uppercase letter.";
+            } else if (asciiCode >= 97 && asciiCode <= 122) {
+                result = "The character is a lowercase letter.";
+            } else {
+                result = "The character is neither a number nor a letter.";
+            }
+
+            // Displaying the result
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+</body>
+</html>
